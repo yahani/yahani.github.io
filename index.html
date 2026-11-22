@@ -4,35 +4,50 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NihayaLabs</title>
-<meta name="description" content="NihayaLabs makes small, useful Android apps. Home of OwlCheck, the used-phone tester.">
-<link rel="icon" type="image/png" href="img/owlcheck.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Crect width=%2740%27 height=%2740%27 rx=%2712%27 fill=%27%236ED3B4%27/%3E%3Ctext x=%2720%27 y=%2728%27 font-family=%27sans-serif%27 font-weight=%27800%27 font-size=%2722%27 text-anchor=%27middle%27 fill=%27%230E3B43%27%3EN%3C/text%3E%3C/svg%3E">
+<meta name="description" content="NihayaLabs makes small, useful Android apps and games. Home of OwlCheck and Candy Call.">
 <style>
+  /* NihayaLabs house colours: deep teal and mint. Each app card carries its own app colours. */
   :root {
-    --navy: #14213D; --amber: #F4A261; --amber-dark: #8A4B16;
-    --paper: #FAF8F5; --ink: #1B1F27; --muted: #5B6270; --rule: #E6E0D6; --card: #F1EDE7;
+    --brand: #0E3B43; --brand-ink: #F3FAF8; --mint: #6ED3B4; --mint-dark: #1F7A64;
+    --paper: #F5F8F7; --ink: #15211F; --muted: #56635F; --rule: #DCE5E2; --card: #FFFFFF;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --paper: #0B1426; --ink: #FAF8F5; --muted: #B8BFCC; --rule: #243458; --card: #14213D; --amber-dark: #F4A261; }
+    :root { --paper: #0A1A1D; --ink: #EAF3F0; --muted: #A9B8B4; --rule: #1F3A3F; --card: #10272B; --mint-dark: #6ED3B4; }
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--paper); color: var(--ink);
          font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-  header { background: var(--navy); color: #FAF8F5; padding: 40px 16px 34px; }
+  header { background: var(--brand); color: var(--brand-ink); padding: 44px 16px 38px; }
   header .wrap, main, footer { max-width: 720px; margin: 0 auto; }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .mark { width: 40px; height: 40px; border-radius: 12px; background: var(--mint);
+          display: grid; place-items: center; color: var(--brand); font-weight: 800; font-size: 22px; }
   header h1 { margin: 0; font-size: 32px; letter-spacing: -0.01em; }
-  header p { margin: 6px 0 0; color: var(--amber); }
+  header p { margin: 10px 0 0; color: var(--mint); }
   main { padding: 12px 16px 40px; }
   h2 { margin: 32px 0 14px; font-size: 21px; }
+  .apps { display: grid; gap: 16px; }
+
+  /* One .app card per app; set --accent, --accent-ink and --accent-text for its colours. */
   .app { display: flex; gap: 18px; align-items: flex-start; background: var(--card);
-         border: 1px solid var(--rule); border-radius: 18px; padding: 20px; }
+         border: 1px solid var(--rule); border-top: 5px solid var(--accent); border-radius: 18px; padding: 20px; }
   .app img { width: 84px; height: 84px; border-radius: 20px; flex: none; }
   .app h3 { margin: 0; font-size: 20px; }
-  .tag { margin: 2px 0 8px; color: var(--amber-dark); font-weight: 600; }
+  .tag { margin: 2px 0 8px; color: var(--accent-text); font-weight: 600; }
   .app p { margin: 0 0 12px; }
   .status { display: inline-block; font-size: 13px; font-weight: 600; padding: 2px 10px;
-            border-radius: 999px; background: var(--amber); color: #14213D; margin-bottom: 10px; }
+            border-radius: 999px; background: var(--accent); color: var(--accent-ink); margin-bottom: 10px; }
   .links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
-  a { color: var(--amber-dark); overflow-wrap: anywhere; }
+  .app a { color: var(--accent-text); }
+  #owlcheck  { --accent: #F4A261; --accent-ink: #14213D; --accent-text: #8A4B16; }
+  #candycall { --accent: #D81B60; --accent-ink: #FFFFFF; --accent-text: #B0124C; }
+  @media (prefers-color-scheme: dark) {
+    #owlcheck  { --accent-text: #F4A261; }
+    #candycall { --accent-text: #FF7AA8; }
+  }
+
+  a { color: var(--mint-dark); overflow-wrap: anywhere; }
   footer { padding: 0 16px 40px; color: var(--muted); font-size: 15px; border-top: 1px solid var(--rule); }
   footer p { margin: 18px 0 0; }
   @media (max-width: 480px) { .app { flex-direction: column; } .app img { width: 72px; height: 72px; } }
@@ -41,27 +56,42 @@
 <body>
 <header>
   <div class="wrap">
-    <h1>NihayaLabs</h1>
-    <p>Small, useful Android apps, built in Sri Lanka.</p>
+    <div class="logo"><span class="mark" aria-hidden="true">N</span><h1>NihayaLabs</h1></div>
+    <p>Small, useful Android apps and games, built in Sri Lanka.</p>
   </div>
 </header>
 <main>
   <h2>Apps</h2>
+  <div class="apps">
 
-  <!-- One .app card per app. Copy this block for the next one. -->
-  <section class="app" id="owlcheck">
-    <img src="img/owlcheck.png" alt="OwlCheck icon">
-    <div>
-      <h3>OwlCheck</h3>
-      <p class="tag">Know the phone before you pay.</p>
-      <span class="status">In testing on Google Play</span>
-      <p>Checks every part of a used phone in about three minutes: screen, touch, speakers, cameras, sensors, charging and more. Then it makes a pass/fail report you can share. English, Sinhala and Tamil.</p>
-      <div class="links">
-        <a href="https://groups.google.com/g/nihayalabstesters">Become a tester</a>
-        <a href="owlcheck-privacy/">Privacy policy</a>
+    <section class="app" id="owlcheck">
+      <img src="img/owlcheck.png" alt="OwlCheck icon">
+      <div>
+        <h3>OwlCheck</h3>
+        <p class="tag">Know the phone before you pay.</p>
+        <span class="status">In testing on Google Play</span>
+        <p>Checks every part of a used phone in about three minutes: screen, touch, speakers, cameras, sensors, charging and more. Then it makes a pass/fail report you can share. English, Sinhala and Tamil.</p>
+        <div class="links">
+          <a href="https://groups.google.com/g/nihayalabstesters">Become a tester</a>
+          <a href="owlcheck-privacy/">Privacy policy</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="app" id="candycall">
+      <img src="img/candycall.png" alt="Candy Call icon">
+      <div>
+        <h3>Candy Call</h3>
+        <p class="tag">Call a colour. Clear their line. Don't run out first.</p>
+        <span class="status">Coming soon to Google Play</span>
+        <p>A two-player game on one phone. Each player arranges a line of candies in secret, then you take turns calling colours to clear the other player's line. Play with a friend, or against the phone on Easy, Medium or Hard.</p>
+        <div class="links">
+          <a href="candycall-privacy/">Privacy policy</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
 </main>
 <footer>
   <p>Contact: <a href="mailto:nihayalabs@gmail.com">nihayalabs@gmail.com</a></p>
