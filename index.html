@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NihayaLabs</title>
+<meta name="description" content="NihayaLabs makes small, useful Android apps. Home of OwlCheck, the used-phone tester.">
+<link rel="icon" type="image/png" href="img/owlcheck.png">
+<style>
+  :root {
+    --navy: #14213D; --amber: #F4A261; --amber-dark: #8A4B16;
+    --paper: #FAF8F5; --ink: #1B1F27; --muted: #5B6270; --rule: #E6E0D6; --card: #F1EDE7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #0B1426; --ink: #FAF8F5; --muted: #B8BFCC; --rule: #243458; --card: #14213D; --amber-dark: #F4A261; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink);
+         font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { background: var(--navy); color: #FAF8F5; padding: 40px 16px 34px; }
+  header .wrap, main, footer { max-width: 720px; margin: 0 auto; }
+  header h1 { margin: 0; font-size: 32px; letter-spacing: -0.01em; }
+  header p { margin: 6px 0 0; color: var(--amber); }
+  main { padding: 12px 16px 40px; }
+  h2 { margin: 32px 0 14px; font-size: 21px; }
+  .app { display: flex; gap: 18px; align-items: flex-start; background: var(--card);
+         border: 1px solid var(--rule); border-radius: 18px; padding: 20px; }
+  .app img { width: 84px; height: 84px; border-radius: 20px; flex: none; }
+  .app h3 { margin: 0; font-size: 20px; }
+  .tag { margin: 2px 0 8px; color: var(--amber-dark); font-weight: 600; }
+  .app p { margin: 0 0 12px; }
+  .status { display: inline-block; font-size: 13px; font-weight: 600; padding: 2px 10px;
+            border-radius: 999px; background: var(--amber); color: #14213D; margin-bottom: 10px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+  a { color: var(--amber-dark); overflow-wrap: anywhere; }
+  footer { padding: 0 16px 40px; color: var(--muted); font-size: 15px; border-top: 1px solid var(--rule); }
+  footer p { margin: 18px 0 0; }
+  @media (max-width: 480px) { .app { flex-direction: column; } .app img { width: 72px; height: 72px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>NihayaLabs</h1>
+    <p>Small, useful Android apps, built in Sri Lanka.</p>
+  </div>
+</header>
+<main>
+  <h2>Apps</h2>
+
+  <!-- One .app card per app. Copy this block for the next one. -->
+  <section class="app" id="owlcheck">
+    <img src="img/owlcheck.png" alt="OwlCheck icon">
+    <div>
+      <h3>OwlCheck</h3>
+      <p class="tag">Know the phone before you pay.</p>
+      <span class="status">In testing on Google Play</span>
+      <p>Checks every part of a used phone in about three minutes: screen, touch, speakers, cameras, sensors, charging and more. Then it makes a pass/fail report you can share. English, Sinhala and Tamil.</p>
+      <div class="links">
+        <a href="https://groups.google.com/g/nihayalabstesters">Become a tester</a>
+        <a href="owlcheck-privacy/">Privacy policy</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>Contact: <a href="mailto:nihayalabs@gmail.com">nihayalabs@gmail.com</a></p>
+</footer>
+</body>
+</html>
